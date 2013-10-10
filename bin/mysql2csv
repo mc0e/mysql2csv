@@ -193,7 +193,7 @@ Main {
 
   def write_to_csv(results, name)
     CSV.open("#{@output_dir}/#{name}.csv", "w") do |csv|
-      results.each do |row|
+      results.each(:cache_rows => false) do |row|
         csv << row.values
       end
     end
